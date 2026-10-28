@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Violetta Kalinicheva’s applied data science portfolio: reproducible machine learning, occupational similarity, and evidence-led analytical storytelling.">
+  <meta name="description" content="Ten evidence-led data science case studies by Violetta Kalinicheva: machine learning, recommendations, forecasting, data quality, and visual storytelling—with reproducible code and honest limits.">
   <meta name="theme-color" content="#172c3b">
   <title>Violetta Kalinicheva | Applied Data Science &amp; Machine Learning</title>
   <link rel="stylesheet" href="styles.css">
@@ -65,10 +65,23 @@
     <section class="projects section-wrap ruled-section" id="projects" aria-labelledby="projects-title">
       <div class="section-heading-row">
         <div><p class="eyebrow">02 / Selected work</p><h2 id="projects-title">Evidence before emphasis.</h2></div>
-        <p class="section-deck">Two reproducible projects, with code, complete documentation, and the limitations in view.</p>
+        <p class="section-deck">Ten case studies. Each connects a practical question to reproducible code, a verified finding, and the boundary of the evidence.</p>
       </div>
 
-      <article class="project" aria-labelledby="career-title">
+      <nav class="project-directory" aria-label="Browse the ten projects">
+        <a href="#career">01 Career pathways</a>
+        <a href="#attrition">02 Attrition</a>
+        <a href="#movielens">03 Recommendations</a>
+        <a href="#tsa">04 TSA complaints</a>
+        <a href="#childcare">05 Childcare</a>
+        <a href="#vehicle-theft">06 Vehicle theft</a>
+        <a href="#retail">07 Forecasting</a>
+        <a href="#lottery">08 Lottery patterns</a>
+        <a href="#visitors">09 Visitor operations</a>
+        <a href="#netflix">10 Content analytics</a>
+      </nav>
+
+      <article class="project" id="career" aria-labelledby="career-title">
         <div class="project-index"><span>01</span><p>Workforce analytics<br> Unsupervised learning</p></div>
         <div class="project-content">
           <div class="project-title-row"><span class="status">Code &amp; documentation available</span><span class="project-tools">Python / PCA / similarity analysis</span></div>
@@ -101,7 +114,7 @@
         </div>
       </article>
 
-      <article class="project" aria-labelledby="attrition-title">
+      <article class="project" id="attrition" aria-labelledby="attrition-title">
         <div class="project-index"><span>02</span><p>Responsible ML<br> Imbalanced classification</p></div>
         <div class="project-content">
           <div class="project-title-row"><span class="status">Code &amp; documentation available</span><span class="project-tools">Python / scikit-learn / model evaluation</span></div>
@@ -140,23 +153,167 @@
         </div>
       </article>
 
-      <details class="project-pipeline">
-        <summary><span><span class="small-label">The broader body of work</span><strong>Eight more project pages in preparation</strong></span><span class="details-icon" aria-hidden="true">+</span></summary>
-        <div class="pipeline-content">
-          <p class="pipeline-note">These selected analyses have local artifacts, but are not presented as reproducible public releases yet. Each still needs final documentation, source review, and any outstanding clean-run checks before its code is featured here.</p>
-          <ol class="pipeline-list" start="3">
-            <li><div><h3>MovieLens Recommendation System</h3><p>Collaborative filtering, popularity baselines, and ranking evaluation with a resource-aware workflow.</p></div><span>Packaging &amp; rerun pending</span></li>
-            <li><div><h3>TSA Complaint Data Quality &amp; Service Improvement</h3><p>Reconciling different data grains and separating reporting gaps from service-performance claims.</p></div><span>Packaging &amp; rerun pending</span></li>
-            <li><div><h3>The Growing Childcare Affordability Crisis in America</h3><p>Government-data storytelling with transparent missingness and careful geographic comparisons.</p></div><span>Artifact review pending</span></li>
-            <li><div><h3>Kia &amp; Hyundai Vehicle Theft Early Warning</h3><p>R-based multi-source analysis that preserves reporting windows and avoids unsupported causal claims.</p></div><span>Packaging &amp; rerun pending</span></li>
-            <li><div><h3>Retail Sales Forecasting During Structural Change</h3><p>Chronological validation and an honest examination of forecast failure when historical trends stop holding.</p></div><span>Packaging &amp; rerun pending</span></li>
-            <li><div><h3>The Lottery Pattern Trap</h3><p>Statistical testing and Tableau storytelling about why apparent patterns do not establish predictive advantage. An isolated analytical rerun passed; the public release remains in preparation.</p></div><span>Source review &amp; packaging pending</span></li>
-            <li><div><h3>White House Visitor Operations &amp; Demand Planning</h3><p>Schema harmonization, duplicate auditing, and time-based views for operational questions.</p></div><span>Packaging &amp; rerun pending</span></li>
-            <li><div><h3>Netflix Global Content Performance Strategy</h3><p>Multi-table visual analysis distinguishing short-term viewership spikes from persistent engagement.</p></div><span>Packaging &amp; rerun pending</span></li>
-          </ol>
+      <article class="project project-compact" id="movielens" aria-labelledby="movielens-title">
+        <div class="project-index"><span>03</span><p>Recommendation systems<br> Sparse modeling</p></div>
+        <div class="project-content">
+          <div class="project-title-row"><span class="status">Code &amp; documentation available</span><span class="project-tools">Python / TF-IDF / SVD / cosine similarity</span></div>
+          <h3 id="movielens-title">MovieLens Recommendation System</h3>
+          <p class="project-subtitle">A better discovery baseline, without a dense ratings matrix</p>
+          <p class="project-summary">Can one liked movie lead to useful alternatives? I audited all 32 million ratings, built a sparse item-to-item model, and compared retrieval with global popularity.</p>
+          <dl class="case-notes">
+            <div><dt>Data &amp; method</dt><dd>32,000,204 ratings; chunked validation, positive-interaction filtering, TF-IDF, and validation-selected 64-factor SVD. Every reserved target interaction is excluded from training.</dd></div>
+            <div><dt>Finding</dt><dd>Hit Rate@10 was 8.99% versus 3.16% for popularity on 9,769 supported test cases. Those cases cover 97.93% of reserved test users; coverage-adjusted retrieval is also reported.</dd></div>
+            <div><dt>Decision boundary</dt><dd>A transductive historical benchmark—not a global-time backtest or an online satisfaction result. Earlier user histories remain in training, and timestamp ties do not establish true sequence.</dd></div>
+          </dl>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/viokalinicheva/movielens-recommender">View repository <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/movielens-recommender/blob/main/movielens_recommender.ipynb">Notebook <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/movielens-recommender/blob/main/README.md">Full README <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-      </details>
-      <p class="verification-note">Featured notebook clean runs were verified October 2, 2026. The project READMEs document data sources, reproduction steps, and appropriate-use limits.</p>
+      </article>
+
+      <article class="project project-compact" id="tsa" aria-labelledby="tsa-title">
+        <div class="project-index"><span>04</span><p>Public-service data<br> Quality &amp; reconciliation</p></div>
+        <div class="project-content">
+          <div class="project-title-row"><span class="status">Code &amp; documentation available</span><span class="project-tools">Python / pandas / visual storytelling</span></div>
+          <h3 id="tsa-title">TSA Complaint Data Quality</h3>
+          <p class="project-subtitle">Reporting gaps are part of the service story</p>
+          <p class="project-summary">What can service leaders learn from complaint counts without confusing missing attribution with airport performance? I reconciled nested data grains before comparing reporting patterns.</p>
+          <dl class="case-notes">
+            <div><dt>Data &amp; method</dt><dd>1,021,281 complaints in Data Liberation Project–standardized TSA reports, January 2015–January 2024. All 41,721 airport-month totals reconcile across category and subcategory tables.</dd></div>
+            <div><dt>Finding</dt><dd>42.9% of complaints have no airport attribution, while 47.4% have imputed or ambiguous upstream subcategory labels. Those limitations stay visible instead of disappearing during cleaning.</dd></div>
+            <div><dt>Decision boundary</dt><dd>Submitted counts are not complaint rates, safety scores, or fair airport rankings. Passenger denominators are absent, and January 2024 is partial. Improve attribution before comparing service performance.</dd></div>
+          </dl>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/viokalinicheva/tsa-complaint-quality">View repository <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/tsa-complaint-quality/blob/main/tsa_complaint_quality.ipynb">Notebook <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/tsa-complaint-quality/blob/main/README.md">Full README <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project project-compact" id="childcare" aria-labelledby="childcare-title">
+        <div class="project-index"><span>05</span><p>Public policy<br> Comparable denominators</p></div>
+        <div class="project-content">
+          <div class="project-title-row"><span class="status">Code &amp; documentation available</span><span class="project-tools">Python / longitudinal analysis / visualization</span></div>
+          <h3 id="childcare-title">Childcare Affordability Across U.S. Counties</h3>
+          <p class="project-subtitle">Compare the same places, in the same year's dollars</p>
+          <p class="project-summary">How did infant-care price-to-income ratios change in consistently observed counties? I repaired a nominal-versus-real currency mismatch and made missing coverage part of the story.</p>
+          <dl class="case-notes">
+            <div><dt>Data &amp; method</dt><dd>34,567 county-year records from the Department of Labor's historical childcare database. A balanced panel of 1,273 counties uses fixed 2018 household weights and same-year price and income.</dd></div>
+            <div><dt>Finding</dt><dd>The weighted mean county ratio rose from 18.52% to 19.92% during 2008–2018, a 1.40-percentage-point increase. Missing infant prices—31.75% of source rows—were not imputed.</dd></div>
+            <div><dt>Decision boundary</dt><dd>These are historical county ratios, not current family spending or a national median. Household weights do not identify childcare users; source imputations and nonrandom missingness remain limitations.</dd></div>
+          </dl>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/viokalinicheva/childcare-affordability">View repository <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/childcare-affordability/blob/main/childcare_affordability.ipynb">Notebook <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/childcare-affordability/blob/main/README.md">Full README <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project project-compact" id="vehicle-theft" aria-labelledby="vehicle-title">
+        <div class="project-index"><span>06</span><p>Municipal monitoring<br> Reporting completeness</p></div>
+        <div class="project-content">
+          <div class="project-title-row"><span class="status">Code &amp; documentation available</span><span class="project-tools">R / data harmonization / ggplot2</span></div>
+          <h3 id="vehicle-title">Kia &amp; Hyundai Vehicle Theft</h3>
+          <p class="project-subtitle">A historical monitoring signal—not a deployed alert</p>
+          <p class="project-summary">Which reported increases survive consistent city and time coverage? I audited four sources separately rather than joining overlapping jurisdictions into a supposed national total.</p>
+          <dl class="case-notes">
+            <div><dt>Data &amp; method</dt><dd>An R workflow checks city-month keys, missing reporting, and count-based percentages. Nine of thirteen cities have complete 2019–2022 monthly coverage and form the fixed comparison panel.</dd></div>
+            <div><dt>Finding</dt><dd>Reported Kia and Hyundai thefts in that panel rose from 2,315 in 2021 to 12,592 in 2022—443.9%. All nine cities increased. The audit also found 42 source percentages inconsistent with displayed counts.</dd></div>
+            <div><dt>Decision boundary</dt><dd>Counts do not measure per-vehicle risk or a national rate, and timing does not identify a social-media effect. A prospective alert needs exposure denominators, thresholds, and independent evaluation.</dd></div>
+          </dl>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/viokalinicheva/vehicle-theft-early-warning">View repository <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/vehicle-theft-early-warning/blob/main/vehicle_theft_early_warning.ipynb">R notebook <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/vehicle-theft-early-warning/blob/main/README.md">Full README <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project project-compact" id="retail" aria-labelledby="retail-title">
+        <div class="project-index"><span>07</span><p>Forecasting<br> Structural change</p></div>
+        <div class="project-content">
+          <div class="project-title-row"><span class="status">Code &amp; documentation available</span><span class="project-tools">Python / rolling validation / error analysis</span></div>
+          <h3 id="retail-title">Retail Sales Forecasting During Structural Change</h3>
+          <p class="project-subtitle">Twelve forecasts. Twelve underestimates.</p>
+          <p class="project-summary">Can a simple historical trend support planning through a rapid change? I compared three baselines using rolling validation, then kept the model's failure year in full view.</p>
+          <dl class="case-notes">
+            <div><dt>Data &amp; method</dt><dd>354 monthly Census retail-trade observations, January 1992–June 2021. Five expanding-window folds select a linear trend before the final twelve months are scored.</dd></div>
+            <div><dt>Finding</dt><dd>RMSE increased from 11,343 in validation to 66,433 in the test year, in millions of nominal U.S. dollars. The model underestimated sales in all twelve test months; test error was 5.86 times validation error.</dd></div>
+            <div><dt>Decision boundary</dt><dd>A failure analysis, not a production forecast. July 2021 revision-vintage values make this a fixed-vintage retrospective backtest, not a real-time historical forecast. Sales are seasonally adjusted, not inflation-adjusted.</dd></div>
+          </dl>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/viokalinicheva/retail-sales-forecasting">View repository <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/retail-sales-forecasting/blob/main/retail_sales_forecasting.ipynb">Notebook <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/retail-sales-forecasting/blob/main/README.md">Full README <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project project-compact" id="lottery" aria-labelledby="lottery-title">
+        <div class="project-index"><span>08</span><p>Statistical literacy<br> Visual communication</p></div>
+        <div class="project-content">
+          <div class="project-title-row"><span class="status">Code &amp; documentation available</span><span class="project-tools">Python / statistical testing / Tableau companion</span></div>
+          <h3 id="lottery-title">The Lottery Pattern Trap</h3>
+          <p class="project-subtitle">Historical frequency is not a validated forecast</p>
+          <p class="project-summary">Do apparent “hot numbers” establish an advantage? I separated games and historical rules, corrected for sampling without replacement, and checked how source revisions affect the conclusion.</p>
+          <dl class="case-notes">
+            <div><dt>Data &amp; method</dt><dd>17,472 supplied drawings from three New York Lottery snapshots. Main-number tests use a common October 2017–April 2024 window, game-specific pools, and Holm multiplicity adjustment.</dd></div>
+            <div><dt>Finding</dt><dd>The three snapshot checks do not reject uniform marginal selection: p = 0.460, 0.475, and 0.503. Later official Powerball additions change its p-value to 0.407 without changing that decision.</dd></div>
+            <div><dt>Decision boundary</dt><dd>No rejection is not proof of randomness or predictive ability. Source versions are preserved rather than silently mixed, and certified official records prevail. No winning-ticket or betting-return claim is made.</dd></div>
+          </dl>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/viokalinicheva/lottery-pattern-trap">View repository <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/lottery-pattern-trap/blob/main/lottery_pattern_trap.ipynb">Notebook <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/lottery-pattern-trap/blob/main/README.md">Full README <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project project-compact" id="visitors" aria-labelledby="visitors-title">
+        <div class="project-index"><span>09</span><p>Operations analytics<br> Privacy by design</p></div>
+        <div class="project-content">
+          <div class="project-title-row"><span class="status">Code &amp; documentation available</span><span class="project-tools">Python / schema harmonization / aggregate reporting</span></div>
+          <h3 id="visitors-title">White House Visitor Operations</h3>
+          <p class="project-subtitle">Appointment-access records are not attendance</p>
+          <p class="project-summary">What can historical public records tell an operations analyst without exposing individual visitors? I harmonized twenty-five official releases and published only aggregate views.</p>
+          <dl class="case-notes">
+            <div><dt>Data &amp; method</dt><dd>1,207,458 source rows across 2021–2023. One-file-at-a-time processing checks schemas, dates, duplicate rows, and reconciliation; names and individual schedules stay out of public outputs.</dd></div>
+            <div><dt>Finding</dt><dd>Removing 1,202 exact within-release duplicates leaves 1,206,256 disclosed records. The dominant WH location code accounts for 81.3%; it is retained rather than hidden to emphasize smaller locations.</dd></div>
+            <div><dt>Decision boundary</dt><dd>Disclosed records are not unique people, realized visits, political influence, or staffing hours. Policy exclusions and partial 2021 coverage prevent an unqualified demand forecast.</dd></div>
+          </dl>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/viokalinicheva/white-house-visitor-operations">View repository <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/white-house-visitor-operations/blob/main/white_house_visitor_operations.ipynb">Notebook <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/white-house-visitor-operations/blob/main/README.md">Full README <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project project-compact" id="netflix" aria-labelledby="netflix-title">
+        <div class="project-index"><span>10</span><p>Content analytics<br> Metric definitions</p></div>
+        <div class="project-content">
+          <div class="project-title-row"><span class="status">Code &amp; documentation available</span><span class="project-tools">Python / multi-grain analysis / visual storytelling</span></div>
+          <h3 id="netflix-title">Netflix Global Content Performance</h3>
+          <p class="project-subtitle">Separate a peak from persistence—and both from profit</p>
+          <p class="project-summary">How do charting films and TV seasons differ in peak reach, repeated appearances, and country breadth? I kept the metrics separate instead of combining incompatible windows into one score.</p>
+          <dl class="case-notes">
+            <div><dt>Data &amp; method</dt><dd>Official weekly Top 10 data, bounded to the historical April 2024 endpoint. Views comparisons use 44 common weeks and 741 distinct title-season units, preserving seasons and counting observed chart weeks once.</dd></div>
+            <div><dt>Finding</dt><dd>Non-English TV seasons averaged 2.97 observed Global Top 10 weeks versus 1.98 for English films. That describes persistence within a selected chart window—not how many subscribers stayed.</dd></div>
+            <div><dt>Decision boundary</dt><dd>Top 10 selection, release schedules, availability, and window censoring shape comparisons. Views are not unique viewers; chart popularity does not establish quality, retention, profitability, or a causal language effect.</dd></div>
+          </dl>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/viokalinicheva/netflix-content-strategy">View repository <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/netflix-content-strategy/blob/main/netflix_content_strategy.ipynb">Notebook <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/viokalinicheva/netflix-content-strategy/blob/main/README.md">Full README <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <p class="verification-note">Projects 01–02 were clean-run verified October 2, 2026; projects 03–10 were rerun October 28, 2026. Each repository documents its actual sources, environment, reproduction steps, and appropriate-use limits. Historical results are not current forecasts.</p>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
