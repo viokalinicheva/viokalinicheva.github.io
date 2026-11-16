@@ -10,7 +10,7 @@ A lightweight, accessible, one-page public portfolio for data scientist and appl
 - A complete About section describing analytical interests and working approach.
 - Eleven project case studies with a practical question, method, verified finding, decision boundary, repository link, executed notebook, and complete README. The original ten remain intact; Dry Bean Classification with a Review Option is the new eleventh study.
 - A keyboard-accessible project directory so readers can jump directly to a domain or method without reading the entire page.
-- Contact through the approved GitHub profile only.
+- Contact through the approved [LinkedIn profile](https://www.linkedin.com/in/violetta-kalinicheva-7a9a181b6/), with a separate GitHub link for code and repositories. No email address is published.
 
 ## Files
 
@@ -90,7 +90,7 @@ The source and evaluation limitations are substantive parts of these projects, n
 4. Change a project result only after source/license review, a clean reproducibility run, and reconciliation with the published release evidence. Record its actual verification date rather than refreshing a date for a cosmetic site edit.
 5. Keep raw or licensed inputs, private files, credentials, local paths, and unrelated materials out of this repository.
 6. Retest keyboard navigation, all eleven project-directory links, repository/notebook/README links, contrast, and horizontal overflow at desktop and mobile widths. Check long project titles and the three-column desktop notes after any content change.
-7. Keep contact limited to the GitHub profile unless additional public contact information is explicitly approved.
+7. Keep contact limited to the approved LinkedIn and GitHub profiles. Publish an email address or other contact details only with explicit approval.
 
 ## Data attribution
 
@@ -98,4 +98,4 @@ O*NET analysis descriptions refer to the O*NET 31.0 database from the U.S. Depar
 
 The attrition analysis uses the fictional IBM HR Analytics Employee Attrition and Performance dataset distributed on Kaggle. The featured repository links to the authoritative source and does not redistribute the CSV.
 
-Projects 03–10 identify their full primary sources, permissions, historical versions, and acquisition instructions in their repository READMEs. These include GroupLens MovieLens research/noncommercial terms; Data Liberation Project–standardized TSA data and attribution/share-alike conditions; Department of Labor childcare data; USAFacts/VICE vehicle-theft sources; original Census retail archives; New York State Open Data lottery snapshots and official-record disclaimers; official White House archive disclosure policies; and Netflix's chart methodology. Project-level data conditions are not replaced by this site's presentation. The site includes summaries only, with no raw data downloads, visitor records, third-party tracking, external fonts, forms, or additional personal contact information.
+Projects 03–10 identify their full primary sources, permissions, historical versions, and acquisition instructions in their repository READMEs. These include GroupLens MovieLens research/noncommercial terms; Data Liberation Project–standardized TSA data and attribution/share-alike conditions; Department of Labor childcare data; USAFacts/VICE vehicle-theft sources; original Census retail archives; New York State Open Data lottery snapshots and official-record disclaimers; official White House archive disclosure policies; and Netflix's chart methodology. Project-level data conditions are not replaced by this site's presentation. The site includes summaries only, with no raw data downloads, visitor records, third-party tracking, external fonts, or forms. Public LinkedIn and GitHub profile links are the only contact routes; no email address or phone number is published.
