@@ -202,7 +202,7 @@
           <p class="project-subtitle">Compare the same places, in the same year's dollars</p>
           <p class="project-summary">How did infant-care price-to-income ratios change in consistently observed counties? I repaired a nominal-versus-real currency mismatch and made missing coverage part of the story.</p>
           <dl class="case-notes">
-            <div><dt>Data &amp; method</dt><dd>34,567 county-year records from the Department of Labor's historical childcare database. A balanced panel of 1,273 counties uses fixed 2018 household weights and same-year price and income.</dd></div>
+            <div><dt>Data &amp; method</dt><dd>34,567 county-year records from the Department of Labor's historical childcare database. A balanced panel of 1,273 counties uses fixed 2018 household weights and prices and income from the same year.</dd></div>
             <div><dt>Finding</dt><dd>The weighted mean county ratio rose from 18.52% to 19.92% during 2008–2018, a 1.40-percentage-point increase. Missing infant prices—31.75% of source rows—were not imputed.</dd></div>
             <div><dt>Decision boundary</dt><dd>These are historical county ratios, not current family spending or a national median. Household weights do not identify childcare users; source imputations and nonrandom missingness remain limitations.</dd></div>
           </dl>
@@ -264,7 +264,7 @@
           <dl class="case-notes">
             <div><dt>Data &amp; method</dt><dd>17,472 supplied drawings from three New York Lottery snapshots. Main-number tests use a common October 2017–April 2024 window, game-specific pools, and Holm multiplicity adjustment.</dd></div>
             <div><dt>Finding</dt><dd>The three snapshot checks do not reject uniform marginal selection: p = 0.460, 0.475, and 0.503. Later official Powerball additions change its p-value to 0.407 without changing that decision.</dd></div>
-            <div><dt>Decision boundary</dt><dd>No rejection is not proof of randomness or predictive ability. Source versions are preserved rather than silently mixed, and certified official records prevail. No winning-ticket or betting-return claim is made.</dd></div>
+            <div><dt>Decision boundary</dt><dd>Failure to reject uniform selection does not prove randomness or predictive ability. Source versions are preserved rather than silently mixed, and certified official records prevail. No winning-ticket or betting-return claim is made.</dd></div>
           </dl>
           <div class="project-links">
             <a class="text-link" href="https://github.com/viokalinicheva/lottery-pattern-trap">View repository <span aria-hidden="true">↗</span></a>
@@ -302,7 +302,7 @@
           <p class="project-subtitle">Separate a peak from persistence—and both from profit</p>
           <p class="project-summary">How do charting films and TV seasons differ in peak reach, repeated appearances, and country breadth? I kept the metrics separate instead of combining incompatible windows into one score.</p>
           <dl class="case-notes">
-            <div><dt>Data &amp; method</dt><dd>Official weekly Top 10 data, bounded to the historical April 2024 endpoint. Views comparisons use 44 common weeks and 741 distinct title-season units, preserving seasons and counting observed chart weeks once.</dd></div>
+            <div><dt>Data &amp; method</dt><dd>Official weekly Top 10 data, bounded to the historical April 2024 endpoint. Comparisons of view counts use 44 common weeks and 741 distinct title-season units, preserving seasons and counting observed chart weeks once.</dd></div>
             <div><dt>Finding</dt><dd>Non-English TV seasons averaged 2.97 observed Global Top 10 weeks versus 1.98 for English films. That describes persistence within a selected chart window—not how many subscribers stayed.</dd></div>
             <div><dt>Decision boundary</dt><dd>Top 10 selection, release schedules, availability, and window censoring shape comparisons. Views are not unique viewers; chart popularity does not establish quality, retention, profitability, or a causal language effect.</dd></div>
           </dl>
@@ -319,13 +319,13 @@
         <div class="project-content">
           <div class="project-title-row"><span class="status">Code &amp; documentation available</span><span class="project-tools">Python / scikit-learn / grouped validation</span></div>
           <h3 id="dry-bean-title">Dry Bean Classification with a Review Option</h3>
-          <p class="project-subtitle">Knowing when to withhold a label is part of the model</p>
-          <p class="project-summary">Can measurements of a bean’s outline distinguish seven supplied variety labels—and when should the model withhold its answer for review? I compared classification methods, kept identical measurement vectors together, and evaluated the tradeoff between automatic coverage and labeling errors.</p>
+          <p class="project-subtitle">Knowing when to refer a case for review is part of the model</p>
+          <p class="project-summary">Can measurements of a bean’s outline distinguish seven supplied variety labels—and when should the model leave a case unlabeled for review? I compared classification methods, kept identical measurement vectors together, and evaluated the tradeoff between automatic coverage and labeling errors.</p>
           <div class="project-detail-grid">
             <div class="project-narrative">
               <dl class="case-notes">
                 <div><dt>Data &amp; method</dt><dd>13,611 UCI Dry Bean records with 16 numeric predictors. Training-only grouped cross-validation selected scaled multinomial logistic regression. A separate validation set fixed the score cutoff before evaluation on 2,723 held-out records.</dd></div>
-                <div><dt>Finding</dt><dd>The rule accepted 2,536 of 2,723 test records (93.13% coverage), with 124 errors among those accepted labels (4.89%). The conditional 95% grouped-bootstrap interval for accepted error was 4.08–5.78%. The aggregate result hides uneven class performance: SIRA had 45 errors among 471 accepted records with that true label (9.55%).</dd></div>
+                <div><dt>Finding</dt><dd>The rule accepted 2,536 of 2,723 test records (93.13% coverage), with 124 errors among those accepted labels (4.89%). The conditional 95% grouped-bootstrap interval for accepted error was 4.08–5.78%. The aggregate result hides uneven class performance: SIRA had 45 errors among 471 accepted records whose true label was SIRA (9.55%).</dd></div>
                 <div><dt>Decision boundary</dt><dd>Model scores are not calibrated probabilities. The observed aggregate error is not a 5% population guarantee. This internal benchmark has no batch, camera, farm, or harvest identifiers; human correction, review costs, and deployment performance were not measured.</dd></div>
               </dl>
               <div class="project-links">
@@ -347,7 +347,7 @@
                 <div class="outcome-bar" aria-hidden="true"><span class="positive" style="width:95.110410%">2,412</span><span class="false-alert" style="width:4.889590%"></span></div>
                 <p class="outcome-key"><span><i class="positive"></i>2,412 correct labels</span><span><i class="false-alert"></i>124 incorrect labels</span></p>
               </div>
-              <figcaption>Original analysis by Violetta Kalinicheva using the UCI Dry Bean dataset (<a href="https://doi.org/10.24432/C50S4B">dataset DOI</a>; <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>). A referral withholds the automatic label; no human correction is assumed. Interval estimates are conditional on the frozen model and rule within this collection.</figcaption>
+              <figcaption>Original analysis by Violetta Kalinicheva using the UCI Dry Bean dataset (<a href="https://doi.org/10.24432/C50S4B">dataset DOI</a>; <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>). A referral leaves a case unlabeled for review; no human correction is assumed. Interval estimates are conditional on the frozen model and rule within this collection.</figcaption>
             </figure>
           </div>
         </div>
