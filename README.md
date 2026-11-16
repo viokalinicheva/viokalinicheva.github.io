@@ -8,7 +8,7 @@ A lightweight, accessible, one-page public portfolio for data scientist and appl
 ## Content
 
 - A complete About section describing analytical interests and working approach.
-- Ten project case studies with a practical question, method, verified finding, decision boundary, repository link, executed notebook, and complete README.
+- Eleven project case studies with a practical question, method, verified finding, decision boundary, repository link, executed notebook, and complete README. The original ten remain intact; Dry Bean Classification with a Review Option is the new eleventh study.
 - A keyboard-accessible project directory so readers can jump directly to a domain or method without reading the entire page.
 - Contact through the approved GitHub profile only.
 
@@ -36,7 +36,7 @@ Open `http://127.0.0.1:8000/` from this folder. No package installation is requi
 
 Projects 01–02 were clean-run verified on **October 2, 2026**. Projects 03–10 were independently rerun from raw inputs on **October 28, 2026**, with source and dependency checks documented in their release evidence. The site update does not change those analytical verification dates. Homepage findings were checked against the completed project README files and actual validation records; no result is inferred from the original saved notebook alone.
 
-The initial two project presentations and their visual evidence panels are retained. The eight additional projects use a compact question → method → finding → decision-boundary structure, with responsive layouts and direct repository/notebook/README links. No raw project data are copied into this website repository. Repository URLs must be verified after the corresponding releases are published and before the homepage is deployed.
+The initial two project presentations and their visual evidence panels are retained. The next eight projects use a compact question → method → finding → decision-boundary structure. The eleventh project adds a matching visual evidence panel with explicit coverage and accepted-label denominators. All have responsive layouts and direct repository/notebook/README links. No raw project data are copied into this website repository. Repository URLs must be verified after the corresponding releases are published and before the homepage is deployed.
 
 ### Beyond the Job Title
 
@@ -70,6 +70,18 @@ The initial two project presentations and their visual evidence panels are retai
 
 The source and evaluation limitations are substantive parts of these projects, not unfinished project placeholders. Historical dates and explicit denominators should remain with each figure or result when copied elsewhere. The Lottery repository maintains native Tableau validation separately from its independently executed Python story; the homepage does not infer workbook rendering from Python checks.
 
+### Dry Bean Classification with a Review Option
+
+- Repository: https://github.com/viokalinicheva/dry-bean-selective-classification
+- Notebook: `dry_bean_classification.ipynb`.
+- Original analysis executed November 9, 2026. The public package preserves its frozen model, policy, predictions, and original result files; later replay and packaging checks are documented separately.
+- 13,611 UCI records, 16 predictors, seven labels. Identical feature vectors stay together across partitions and training-only cross-validation. A separate validation set selects the score cutoff.
+- On 2,723 held-out records, the rule accepts 2,536 labels (93.13% coverage), including 2,412 correct labels and 124 errors (4.89% accepted-label error). The 187 referrals are not assumed to be corrected by a person.
+- The conditional 95% whole-vector-group bootstrap interval for accepted-label error is 4.08–5.78%. SIRA has 45 errors among 471 accepted true-SIRA records (9.55%); the aggregate does not establish a 5% population guarantee.
+- Scores are not calibrated probabilities. This internal imaging benchmark lacks batch, farm, harvest, and camera identifiers; human-review capacity, costs, corrections, and external deployment have not been measured.
+- The two evidence bars deliberately have different denominators: all test records and accepted labels. Text keys expose every count without relying on color.
+- Original analysis and visuals credit Violetta Kalinicheva and UCI Dry Bean, DOI https://doi.org/10.24432/C50S4B, CC BY 4.0. The code repository contains full provenance, reproduction instructions, and limitations.
+
 ## Maintenance checklist
 
 1. Preserve professional titles and decision-oriented summaries; avoid unverified employment or outcome claims.
@@ -77,7 +89,7 @@ The source and evaluation limitations are substantive parts of these projects, n
 3. Verify repository, notebook, and README links after any rename or branch change.
 4. Change a project result only after source/license review, a clean reproducibility run, and reconciliation with the published release evidence. Record its actual verification date rather than refreshing a date for a cosmetic site edit.
 5. Keep raw or licensed inputs, private files, credentials, local paths, and unrelated materials out of this repository.
-6. Retest keyboard navigation, all ten project-directory links, repository/notebook/README links, contrast, and horizontal overflow at desktop and mobile widths. Check long project titles and the three-column desktop notes after any content change.
+6. Retest keyboard navigation, all eleven project-directory links, repository/notebook/README links, contrast, and horizontal overflow at desktop and mobile widths. Check long project titles and the three-column desktop notes after any content change.
 7. Keep contact limited to the GitHub profile unless additional public contact information is explicitly approved.
 
 ## Data attribution

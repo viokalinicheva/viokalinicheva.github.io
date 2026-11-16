@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ten evidence-led data science case studies by Violetta Kalinicheva: machine learning, recommendations, forecasting, data quality, and visual storytelling—with reproducible code and honest limits.">
+  <meta name="description" content="Eleven evidence-led data science case studies by Violetta Kalinicheva: machine learning, recommendations, forecasting, data quality, and visual storytelling—with reproducible code and honest limits.">
   <meta name="theme-color" content="#172c3b">
   <title>Violetta Kalinicheva | Applied Data Science &amp; Machine Learning</title>
   <link rel="stylesheet" href="styles.css?v=bcd3572432f0">
@@ -65,10 +65,10 @@
     <section class="projects section-wrap ruled-section" id="projects" aria-labelledby="projects-title">
       <div class="section-heading-row">
         <div><p class="eyebrow">02 / Selected work</p><h2 id="projects-title">Evidence before emphasis.</h2></div>
-        <p class="section-deck">Ten case studies. Each connects a practical question to reproducible code, a verified finding, and the boundary of the evidence.</p>
+        <p class="section-deck">Eleven case studies. Each connects a practical question to reproducible code, a verified finding, and the boundary of the evidence.</p>
       </div>
 
-      <nav class="project-directory" aria-label="Browse the ten projects">
+      <nav class="project-directory" aria-label="Browse the eleven projects">
         <a href="#career">01 Career pathways</a>
         <a href="#attrition">02 Attrition</a>
         <a href="#movielens">03 Recommendations</a>
@@ -79,6 +79,7 @@
         <a href="#lottery">08 Lottery patterns</a>
         <a href="#visitors">09 Visitor operations</a>
         <a href="#netflix">10 Content analytics</a>
+        <a href="#dry-bean">11 Classification &amp; review</a>
       </nav>
 
       <article class="project" id="career" aria-labelledby="career-title">
@@ -313,7 +314,46 @@
         </div>
       </article>
 
-      <p class="verification-note">Projects 01–02 were clean-run verified October 2, 2026; projects 03–10 were rerun October 28, 2026. Each repository documents its actual sources, environment, reproduction steps, and appropriate-use limits. Historical results are not current forecasts.</p>
+      <article class="project" id="dry-bean" aria-labelledby="dry-bean-title">
+        <div class="project-index"><span>11</span><p>Selective classification<br> Error &amp; coverage</p></div>
+        <div class="project-content">
+          <div class="project-title-row"><span class="status">Code &amp; documentation available</span><span class="project-tools">Python / scikit-learn / grouped validation</span></div>
+          <h3 id="dry-bean-title">Dry Bean Classification with a Review Option</h3>
+          <p class="project-subtitle">Knowing when to withhold a label is part of the model</p>
+          <p class="project-summary">Can measurements of a bean’s outline distinguish seven supplied variety labels—and when should the model withhold its answer for review? I compared classification methods, kept identical measurement vectors together, and evaluated the tradeoff between automatic coverage and labeling errors.</p>
+          <div class="project-detail-grid">
+            <div class="project-narrative">
+              <dl class="case-notes">
+                <div><dt>Data &amp; method</dt><dd>13,611 UCI Dry Bean records with 16 numeric predictors. Training-only grouped cross-validation selected scaled multinomial logistic regression. A separate validation set fixed the score cutoff before evaluation on 2,723 held-out records.</dd></div>
+                <div><dt>Finding</dt><dd>The rule accepted 2,536 of 2,723 test records (93.13% coverage), with 124 errors among those accepted labels (4.89%). The conditional 95% grouped-bootstrap interval for accepted error was 4.08–5.78%. The aggregate result hides uneven class performance: SIRA had 45 errors among 471 accepted records with that true label (9.55%).</dd></div>
+                <div><dt>Decision boundary</dt><dd>Model scores are not calibrated probabilities. The observed aggregate error is not a 5% population guarantee. This internal benchmark has no batch, camera, farm, or harvest identifiers; human correction, review costs, and deployment performance were not measured.</dd></div>
+              </dl>
+              <div class="project-links">
+                <a class="text-link" href="https://github.com/viokalinicheva/dry-bean-selective-classification">View repository <span aria-hidden="true">↗</span></a>
+                <a class="text-link" href="https://github.com/viokalinicheva/dry-bean-selective-classification/blob/main/dry_bean_classification.ipynb">Notebook <span aria-hidden="true">↗</span></a>
+                <a class="text-link" href="https://github.com/viokalinicheva/dry-bean-selective-classification/blob/main/README.md">Full README <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+            <figure class="evidence-panel threshold-chart" aria-labelledby="dry-bean-evidence-title">
+              <p class="small-label">Evidence / held-out referral policy</p>
+              <h4 id="dry-bean-evidence-title">Most labels retained.<br>Not all errors removed.</h4>
+              <div class="outcome-group">
+                <p class="outcome-label">Among all 2,723 test records</p>
+                <div class="outcome-bar" aria-hidden="true"><span class="positive" style="width:93.132574%">2,536</span><span class="missed" style="width:6.867426%"></span></div>
+                <p class="outcome-key"><span><i class="positive"></i>2,536 accepted automatically</span><span><i class="missed"></i>187 referred for review</span></p>
+              </div>
+              <div class="outcome-group">
+                <p class="outcome-label">Among the 2,536 accepted labels</p>
+                <div class="outcome-bar" aria-hidden="true"><span class="positive" style="width:95.110410%">2,412</span><span class="false-alert" style="width:4.889590%"></span></div>
+                <p class="outcome-key"><span><i class="positive"></i>2,412 correct labels</span><span><i class="false-alert"></i>124 incorrect labels</span></p>
+              </div>
+              <figcaption>Original analysis by Violetta Kalinicheva using the UCI Dry Bean dataset (<a href="https://doi.org/10.24432/C50S4B">dataset DOI</a>; <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>). A referral withholds the automatic label; no human correction is assumed. Interval estimates are conditional on the frozen model and rule within this collection.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <p class="verification-note">Projects 01–02 were clean-run verified October 2, 2026; projects 03–10 were rerun October 28, 2026. Project 11 preserves its November 9, 2026 analysis and frozen test predictions; its repository distinguishes original execution from later package checks. Each repository documents its actual sources, environment, reproduction steps, and appropriate-use limits. Historical results are not current forecasts.</p>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
